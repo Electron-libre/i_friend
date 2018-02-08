@@ -1,0 +1,17 @@
+version: "2.1"
+services:
+  app:
+    build:
+      context: ../../
+      dockerfile: ops/test/Dockerfile
+    volumes:
+      - ../../mix.exs:/app/mix.exs
+      - ../../mix.lock:/app/mix.lock
+      - ../../lib:/app/lib
+      - ../../config:/app/config
+      - ../../test:/app/test
+    environment:
+      MAX: 3
+      MIX_ENV: dev
+    tty: true
+    stdin_open: true

@@ -1,0 +1,13 @@
+version: "2.1"
+services:
+  app:
+    image: local/i_friend
+    build:
+      context: ../../
+      dockerfile: ops/release/Dockerfile
+
+  prod:
+    image: local/i_friend
+    environment:
+      GREETER: "Ahoy !"
+      MAX: 10
